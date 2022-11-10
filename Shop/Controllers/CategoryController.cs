@@ -70,10 +70,9 @@ namespace Shop.Controllers
             {
                 return BadRequest(new { message = "Este registro já foi atualizado" });
             }
-            catch (Exception err)
+            catch (Exception)
             {
-                // return BadRequest(new { message = "Não foi possível atualizar a categoria" });
-                return BadRequest(new { message = err.Message });
+                return BadRequest(new { message = "Não foi possível atualizar a categoria" });
             }
         }
 
