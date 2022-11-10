@@ -8,13 +8,10 @@ namespace Shop.Controllers
     [Route("categories")]
     public class CategoryController : ControllerBase
     {
-        // Endpoint => URL
-        // https://localhost:5001/categories
-
         [HttpGet]
         [Route("")]
         public async Task<ActionResult<List<Category>>> Get(
-            [FromServices]DataContext context)
+            [FromServices] DataContext context)
         {
             var categories = await context.Categories.AsNoTracking().ToListAsync();
             return Ok(categories);
@@ -25,7 +22,7 @@ namespace Shop.Controllers
         [Route("{id:int}")]
         public async Task<ActionResult<Category>> GetById(
             int id,
-            [FromServices]DataContext context)
+            [FromServices] DataContext context)
         {
             var category = await context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
@@ -36,7 +33,7 @@ namespace Shop.Controllers
         [Route("")]
         public async Task<ActionResult<Category>> Post(
             [FromBody]Category model,
-            [FromServices]DataContext context)
+            [FromServices] DataContext context)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -86,7 +83,7 @@ namespace Shop.Controllers
         [Route("{id:int}")]
         public async Task<ActionResult<List<Category>>> Delete(
             int id,
-            [FromServices]DataContext context)
+            [FromServices] DataContext context)
         {
             var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
             if (category == null)
