@@ -11,41 +11,41 @@ namespace Shop.Controllers
 
         [HttpGet]
         [Route("")]
-        public string Get()
+        public async Task<ActionResult<Category>> Get()
         {
-            return "GET";
+            return new Category();
         }
 
 
         [HttpGet]
         [Route("{id:int}")]
-        public string GetById(int id)
+        public async Task<ActionResult<List<Category>>> GetById(int id)
         {
-            return "GET " + id.ToString();
+            return new List<Category>();
         }
 
         [HttpPost]
         [Route("")]
-        public Category Post([FromBody]Category model)
+        public async Task<ActionResult<List<Category>>> Post([FromBody]Category model)
         {
-            return model;
+            return Ok(model);
         }
 
         [HttpPut]
         [Route("{id:int}")]
-        public Category Put(int id, [FromBody]Category model)
+        public async Task<ActionResult<List<Category>>> Put(int id, [FromBody]Category model)
         {
             if (model.Id == id)
-                return model;
+                return Ok(model);
 
-            return null;
+            return NotFound();
         }
 
         [HttpDelete]
         [Route("{id:int}")]
-        public string Delete()
+        public async Task<ActionResult<List<Category>>> Delete()
         {
-            return "DELETE";
+            return Ok();
         }
     }
 }
