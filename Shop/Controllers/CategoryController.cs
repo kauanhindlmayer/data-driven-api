@@ -42,7 +42,7 @@ namespace Shop.Controllers
         }
 
         [HttpDelete]
-        [Route("")]
+        [Route("{id:int}")]
         public string Delete()
         {
             return "DELETE";
