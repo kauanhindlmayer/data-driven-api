@@ -53,5 +53,25 @@ namespace Shop.Controllers
                 token = token
             };
         }
+
+        [HttpGet]
+        [Route("anonimo")]
+        [AllowAnonymous]
+        public string Anonimo() => "Anonimo";
+
+        [HttpGet]
+        [Route("autenticado")]
+        [Authorize]
+        public string Autenticado() => "Autenticado";
+
+        [HttpGet]
+        [Route("funcionario")]
+        [Authorize(Roles = "employee")]
+        public string Funcionario() => "Funcionario";
+
+        [HttpGet]
+        [Route("gerente")]
+        [Authorize(Roles = "manager")]
+        public string Gerente() => "Gerente";
     }
 }
