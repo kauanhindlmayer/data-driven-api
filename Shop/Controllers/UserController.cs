@@ -7,7 +7,7 @@ using Shop.Services;
 
 namespace Shop.Controllers
 {
-    [Route("v1/users")]
+    [Route("users")]
     public class UserController : Controller
     {
         [HttpGet]
@@ -81,6 +81,7 @@ namespace Shop.Controllers
 
         [HttpPost]
         [Route("login")]
+        [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Authenticate(
             [FromServices] DataContext context,
             [FromBody] User model)

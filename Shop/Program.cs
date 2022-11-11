@@ -39,6 +39,7 @@ builder.Services.AddAuthentication(x =>
 });
 // builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
 // builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(ConfigurationBinder.GetConnectionString("connectionString")));
+builder.Services.AddScoped<DataContext, DataContext>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

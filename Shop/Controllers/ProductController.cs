@@ -6,7 +6,7 @@ using Shop.Models;
 
 namespace Shop.Controllers
 {
-    [Route("v1/products")]
+    [Route("products")]
     public class ProductController : ControllerBase
     {
         [HttpGet]
